@@ -4,3 +4,23 @@
   Use Font Awesome icons (default)
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   */
+
+.best-in-place:before
+{
+	padding-right:10px;
+	font-family: FontAwesome;
+	content: "\f040";
+}
+
+
+.top-bt {
+	margin-top:25px;
+}
+
+
+.pagination { padding: 3px; margin: 3px; } 
+.pagination a { padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #999; text-decoration: none; color: black; } 
+.pagination a:hover, 
+.pagination a:active { border: 1px solid #999; color: black; } 
+.pagination span.current { padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #999; font-weight: bold; background-color: #000099; color: #FFF; } 
+.pagination span.disabled { padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #999; color: black; }

@@ -15,33 +15,17 @@
 //= require best_in_place
 //= require mask
 
-//= require cocoon
+//= require select2-full
 
-//= require dataTables/jquery.dataTables
-//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+//= require cocoon
 
 //= require twitter/bootstrap
 //= require_tree .
 
 $(document).ready(function() {
-  jQuery(".best_in_place").best_in_place();
-
-	$('.datatable').DataTable( {
-	    responsive: true,
-	    "language": {
-	      'search': 'Pesquisar:',
-	      'loadingRecords': 'Carregando registros...',
-	      'lengthMenu': 'Exibindo _MENU_ registros por página',
-	      'zeroRecords': 'Nenhum registro foi encontrado, desculpe.',
-	      'info': 'Exibindo página _PAGE_ de _PAGES_',
-	      'infoEmpty': 'Nenhum registro disponível',
-	      'infoFiltered': '(filtrado de _MAX_ registros)',
-	      paginate: {
-	          first:      "Primeiro",
-	          previous:   "Anterior",
-	          next:       "Próximo",
-	          last:       "Último"
-	      }
-	    }
-	} );
+	jQuery(".best_in_place").best_in_place();
+	$( "select" ).select2({
+	    theme: "bootstrap",
+	    width: '100%'
+	});	
 });

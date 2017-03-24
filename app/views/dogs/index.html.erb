@@ -10,7 +10,7 @@
 <%= render(partial: "dogs/advanced_search") %>
 <hr />
 
-<table class="table table-striped datatable">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Id</th>
@@ -42,5 +42,8 @@
 </table>
 
 <br />
-
+<div class="pull-right">
+  <%= will_paginate @dogs %>
+</div>
+<br />
 <%= link_to 'Novo registro', new_dog_path , class: "btn btn-primary btn-bordered ph40" %>

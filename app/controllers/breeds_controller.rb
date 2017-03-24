@@ -4,7 +4,7 @@ class BreedsController < ApplicationController
   # GET /breeds
   # GET /breeds.json
   def index
-    @breeds = Breed.all
+    @breeds = Breed.paginate(page: params[:page])
   end
 
   # GET /breeds/1

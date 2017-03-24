@@ -1,5 +1,7 @@
 class Dog < ApplicationRecord
 
+  self.per_page = 10
+
 	enum gender: {
 		"Macho": 1,
 		"Fêmea": 2

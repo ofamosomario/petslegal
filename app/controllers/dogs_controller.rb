@@ -5,7 +5,7 @@ class DogsController < ApplicationController
   # GET /dogs.json
   def index
     @search = Dog.ransack(params[:q])
-    @dogs = @search.result(distinct: true).includes(:breed)
+    @dogs = @search.result(distinct: true).includes(:breed).paginate(page: params[:page])
   end
 
   # GET /dogs/1

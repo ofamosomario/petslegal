@@ -47,9 +47,8 @@ gem "font-awesome-rails"
 # Best in Place
 gem 'best_in_place', '~> 3.0.3'
 
-# DataTable
-gem 'jquery-datatables-rails', '~> 3.4.0'
-
+# postgre drop
+gem 'rtask-db-drop-connections', '~> 1.0'
 
 # Ransack
 gem 'ransack'
@@ -59,6 +58,12 @@ gem "cocoon"
 
 # Faker
 gem 'faker'
+
+# Pagination
+gem 'will_paginate', '~> 3.1.0'
+
+# Select2
+gem "select2-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
