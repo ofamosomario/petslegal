@@ -1,0 +1,6 @@
+pt-BR:
+  breeds:
+    confirmations:
+      new: 'O gênero foi cadastrado com sucesso.'
+      edit: 'O gênero selecionado foi editada com sucesso.'
+      destroy: 'O gênero selecionado foi deletado com sucesso.'

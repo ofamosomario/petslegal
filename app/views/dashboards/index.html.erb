@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1>Últimos <i>pets</i> cadastrados</h1>
+</div>
+
+<table class="table table-striped datatable">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Dono</th>
+      <th>Nome do cão</th>
+      <th>Gênero</th>
+      <th>Raça</th>
+      <th>Telefone de contato 1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @dogs.each do |dog| %>
+      <tr>
+        <td><%= dog.id %></td>
+        <td><%= best_in_place dog, :owner_name, as: :input , class: 'best-in-place'.html_safe %></td>
+        <td><%= best_in_place dog, :dog_name, as: :input , class: 'best-in-place'.html_safe %></td>
+        <td><%= dog.gender %></td>
+        <td><%= dog.breed.name %></td>
+        <td><%= dog.onwer_phone_1 %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

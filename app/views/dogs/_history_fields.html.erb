@@ -1,0 +1,24 @@
+<div class="nested-fields">  
+  <div class="row">
+    <div class="col-md-3 ph10">
+      <div class="form-group">
+        <%= f.input :user , label: "Atendente / Veterinário:" %>
+      </div>
+    </div>
+    <div class="col-md-5 ph10">
+      <div class="form-group">
+        <%= f.input :description , label: "Descrição:" %>
+      </div>
+    </div>
+    <div class="col-md-2 ph10">
+      <div class="form-group">
+        <%= f.input :care, collection: History.cares.keys , label: 'Tipo de serviço:' %>
+      </div>
+    </div>
+    <div class="col-md-2 ph10">
+      <div class="form-group">
+        <%= link_to_remove_association  '<i class="fa fa-remove"> Remover</i>'.html_safe, f , class: "btn btn-danger btn-xs top-bt" %>
+      </div>
+    </div>
+  </div>
+</div>

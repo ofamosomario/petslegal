@@ -1,0 +1,40 @@
+<%= simple_form_for(@dog) do |f| %>
+
+  <div class="form-group">
+    <%= f.input :dog_name , label: 'Nome do cachorro:' %>
+  </div>
+  <div class="form-group">
+    <%= f.association :breed , label: 'Raça:' %>
+  </div>
+  <div class="form-group">
+    <%= f.input :gender, collection: Dog.genders.keys , label: 'Gênero:' %>
+  </div>
+  <div class="form-group">
+    <%= f.input :owner_name , label: 'Nome do dono:' %>
+  </div>
+  <div class="form-group">
+    <%= f.input :onwer_phone_1 , label: 'Telefone de contato 1:' %>
+  </div>
+  <div class="form-group">
+    <%= f.input :owner_phone_2 , label: 'Telefone de contato 2:' %>
+  </div>
+
+  <div class="page-header">
+    <h1>Histórico de atendimento</h1>
+  </div>
+
+  <div id="histories">
+    <%= f.simple_fields_for :histories do |history|%>
+      <%= render 'history_fields', f: history %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association '<i class="fa fa-plus" aria-hidden="true"> Novo registro</i>'.html_safe, f, :histories , class: "btn btn-warning btn-xs" %>
+    </div>
+  </div>
+
+  <hr />
+
+  <%= f.button :submit, class: 'btn-primary' %>
+  <%= link_to 'Cancelar', dogs_path, class: 'btn btn-default' %>
+                
+<% end %>

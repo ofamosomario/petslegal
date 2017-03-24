@@ -1,0 +1,40 @@
+<div id="busca" class="collapse">
+  <br />
+  <%= search_form_for @search , :builder => SimpleForm::FormBuilder do |f| %>
+    <div class='row'>
+      <div class="col-md-2 ph10">
+        <div class="form-group">
+          <%= f.input :owner_name_cont , label: false, placeholder: "Dono" %>
+        </div>
+      </div>
+      <div class="col-md-2 ph10">
+        <div class="form-group">
+          <%= f.input :dog_name_cont , label: false, placeholder: "Nome do cão" %>
+        </div>
+      </div>
+      <div class="col-md-2 ph10">
+        <div class="form-group">
+          <%= f.input :gender_eq, collection: Dog.genders , label: false , prompt: "Escolha o gênero" %>
+        </div>
+      </div>
+      <div class="col-md-2 ph10">
+        <div class="form-group">
+          <%= f.input :breed_id_eq, collection: Breed.all , label: false , prompt: "Escolha a raça" %>
+        </div>
+      </div>
+      <div class="col-md-2 ph10">
+        <div class="form-group">
+          <%= f.input :onwer_phone_1_eq , label: false, placeholder: "Telefone de contato" %>
+        </div>
+      </div>
+      <div class="col-md-2 ph10">
+        <div class="form-group">
+          <%= f.button :submit, 'Pesquisar' , class: 'btn-primary' %>
+        </div>
+      </div>
+    </div>
+
+  
+
+  <% end %>
+</div>

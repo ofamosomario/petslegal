@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1>Raça - Listagem</h1>
+</div>
+
+<table class="table table-striped datatable">
+  <thead>
+    <tr>
+      <th>Name </th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @breeds.each do |breed| %>
+      <tr>
+        <td><%= best_in_place breed, :name, as: :input , class: 'best-in-place'.html_safe %></td>
+        <td>
+          <%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'.html_safe, edit_breed_path(breed) , class: "btn btn-warning btn-xs" %>
+          <%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe, breed, method: :delete, data: { confirm: 'Você tem certeza?' } , class: "btn btn-danger btn-xs" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Novo registro', new_breed_path , class: "btn btn-primary btn-bordered ph40" %>

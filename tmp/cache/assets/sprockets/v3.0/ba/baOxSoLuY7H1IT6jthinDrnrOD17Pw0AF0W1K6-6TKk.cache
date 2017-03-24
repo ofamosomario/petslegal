@@ -1,0 +1,7 @@
+I"ƒ(function() {
+  $('#dog_onwer_phone_1').mask('(99)99999-9999');
+
+  $('#dog_onwer_phone_2').mask('(99)99999-9999');
+
+}).call(this);
+:ET

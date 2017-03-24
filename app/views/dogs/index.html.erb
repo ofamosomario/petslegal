@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1>Cachorro - Listagem</h1>
+</div>
+
+<a href="#busca" data-toggle="collapse">
+  Busca avançada / detalhada <i class="fa fa-sort-desc" aria-hidden="true"></i>
+</a>
+<%= render(partial: "dogs/advanced_search") %>
+<hr />
+
+<table class="table table-striped datatable">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Dono</th>
+      <th>Nome do cão</th>
+      <th>Gênero</th>
+      <th>Raça</th>
+      <th>Telefone de contato 1</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @dogs.each do |dog| %>
+      <tr>
+        <td><%= dog.id %></td>
+        <td><%= best_in_place dog, :owner_name, as: :input , class: 'best-in-place'.html_safe %></td>
+        <td><%= best_in_place dog, :dog_name, as: :input , class: 'best-in-place'.html_safe %></td>
+        <td><%= dog.gender %></td>
+        <td><%= dog.breed.name %></td>
+        <td><%= dog.onwer_phone_1 %></td>
+        <td>
+          <%= link_to '<i class="fa fa-eye" aria-hidden="true"></i>'.html_safe, dog , class: "btn btn-default btn-xs" %>
+          <%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'.html_safe, edit_dog_path(dog) , class: "btn btn-warning btn-xs" %>
+          <%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe, dog, method: :delete, data: { confirm: 'Você tem certeza?' } , class: "btn btn-danger btn-xs" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Novo registro', new_dog_path , class: "btn btn-primary btn-bordered ph40" %>

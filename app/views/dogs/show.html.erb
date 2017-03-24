@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h1><%= @dog.dog_name %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong>Dono:</strong></dt>
+  <dd><%= @dog.owner_name %></dd>
+  <dt><strong>Nome do cachorro:</strong></dt>
+  <dd><%= @dog.dog_name %></dd>
+  <dt><strong>Gênero:</strong></dt>
+  <dd><%= @dog.gender %></dd>
+  <dt><strong>Telefone de contato 1:</strong></dt>
+  <dd><%= @dog.onwer_phone_1 %></dd>
+  <dt><strong>Telefone de contato 2:</strong></dt>
+  <dd><%= @dog.owner_phone_2 %></dd>
+</dl>
+
+<div class="page-header">
+  <h1>Histórico de atendimento</h1>
+</div>
+
+<% @dog.histories.each do |history| %>
+  <dl class="dl-horizontal">
+    <dt><strong>Atendente / Veterinário:</strong></dt>
+    <dd><%= history.user %></dd>
+    <dt><strong>Tipo:</strong></dt>
+    <dd><%= history.care %></dd>
+    <dt><strong>Descrição:</strong></dt>
+    <dd><%= history.description %></dd>
+  </dl>
+<% end %>
