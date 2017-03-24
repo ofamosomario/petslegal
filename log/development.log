@@ -19767,3 +19767,40 @@ Processing by DogsController#new as HTML
 Completed 200 OK in 141ms (Views: 134.0ms | ActiveRecord: 5.9ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-03-24 15:44:06 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DashboardsController#index as HTML
+  Rendering dashboards/index.html.erb within layouts/application
+  [1m[36mDog Load (0.7ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" ORDER BY "dogs"."created_at" ASC LIMIT $1[0m  [["LIMIT", 10]]
+  [1m[36mBreed Load (0.3ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mBreed Load (0.3ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBreed Load (0.2ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mBreed Load (0.2ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mBreed Load (0.2ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mBreed Load (0.1ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mBreed Load (0.1ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mBreed Load (0.1ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered dashboards/index.html.erb within layouts/application (46.6ms)
+Started GET "/" for 127.0.0.1 at 2017-03-24 15:44:07 -0300
+Processing by DashboardsController#index as HTML
+  Rendering dashboards/index.html.erb within layouts/application
+  [1m[36mDog Load (23.0ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" ORDER BY "dogs"."created_at" ASC LIMIT $1[0m  [["LIMIT", 10]]
+  [1m[36mBreed Load (25.1ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mBreed Load (4.7ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBreed Load (0.3ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mBreed Load (0.2ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mBreed Load (0.1ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mBreed Load (0.1ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mBreed Load (0.1ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mBreed Load (0.2ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" WHERE "breeds"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered dashboards/index.html.erb within layouts/application (89.7ms)
+Completed 200 OK in 1613ms (Views: 1542.7ms | ActiveRecord: 69.4ms)
+
+
+Completed 200 OK in 2353ms (Views: 2338.6ms | ActiveRecord: 6.8ms)
+
+

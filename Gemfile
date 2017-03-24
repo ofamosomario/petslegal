@@ -57,12 +57,12 @@ gem 'ransack'
 # Cocoon
 gem "cocoon"
 
+# Faker
+gem 'faker'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-
-  # Faker
-  gem 'faker'
 
   # Rspec
   gem 'rspec-rails', '~> 3.5'
