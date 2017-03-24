@@ -1,8 +1,0 @@
-I"´(function() {
-  $(document).ready(function() {
-    $('#dog_onwer_phone_1').mask('(99)99999-9999');
-    return $('#dog_onwer_phone_2').mask('(99)99999-9999');
-  });
-
-}).call(this);
-:ET
