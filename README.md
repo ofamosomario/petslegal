@@ -30,3 +30,5 @@ $ rails s
 ```sh
 $ rake spec
 ```
+
+###### Desenvolvidor por: Mário Augusto Carvalho / mario@greenmelon.com.br
