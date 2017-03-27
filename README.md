@@ -1,6 +1,6 @@
-# PetLegal - Instruções
+# PetLegal - Instruções 
 
-Projeto desenvolvido para Ionatec
+Projeto desenvolvido para Ionatec - endereço do projeto no Heorku: <https://petshoplegal.herokuapp.com/>
 
 ### Informações de configuração e instalação do projeto PetLegal:
 
