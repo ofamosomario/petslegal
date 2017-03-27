@@ -5,7 +5,7 @@ class DogsController < ApplicationController
   # GET /dogs.json
   def index
     @search = Dog.ransack(params[:q])
-    @dogs = @search.result(distinct: true).includes(:breed).paginate(page: params[:page])
+    @dogs = Dog.ransack_paginate @search , params[:page]
   end
 
   # GET /dogs/1
@@ -29,7 +29,7 @@ class DogsController < ApplicationController
 
     respond_to do |format|
       if @dog.save
-        format.html { redirect_to dogs_url, notice: 'Dog was successfully created.' }
+        format.html { redirect_to dogs_url, notice: I18n.t(:new, scope: [:dogs, :confirmations]) }
         format.json { render :show, status: :created, location: @dog }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class DogsController < ApplicationController
   def update
     respond_to do |format|
       if @dog.update(dog_params)
-        format.html { redirect_to dogs_url, notice: 'Dog was successfully updated.' }
+        format.html { redirect_to dogs_url, notice: I18n.t(:edit, scope: [:dogs, :confirmations]) }
         format.json { render :show, status: :ok, location: @dog }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class DogsController < ApplicationController
   def destroy
     @dog.destroy
     respond_to do |format|
-      format.html { redirect_to dogs_url, notice: 'Dog was successfully destroyed.' }
+      format.html { redirect_to dogs_url, notice: I18n.t(:destroy, scope: [:dogs, :confirmations]) }
       format.json { head :no_content }
     end
   end

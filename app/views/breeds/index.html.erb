@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <div class="page-header">
   <h1>Raça - Listagem</h1>
@@ -24,7 +23,10 @@
     <% end %>
   </tbody>
 </table>
-
+<div class="pull-right">
+  <%= will_paginate @breeds %>
+</div>
 <br />
-
 <%= link_to 'Novo registro', new_breed_path , class: "btn btn-primary btn-bordered ph40" %>
+<br />
+<br />

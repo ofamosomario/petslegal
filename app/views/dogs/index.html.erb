@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="page-header">
   <h1>Cachorro - Listagem</h1>
 </div>
@@ -40,10 +38,10 @@
     <% end %>
   </tbody>
 </table>
-
-<br />
 <div class="pull-right">
   <%= will_paginate @dogs %>
 </div>
 <br />
 <%= link_to 'Novo registro', new_dog_path , class: "btn btn-primary btn-bordered ph40" %>
+<br />
+<br />

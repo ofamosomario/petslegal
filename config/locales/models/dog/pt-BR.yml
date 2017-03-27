@@ -1,0 +1,6 @@
+pt-BR:
+  dogs:
+    confirmations:
+      new: 'O cachorro foi cadastrado com sucesso.'
+      edit: 'O cachorro selecionado foi editada com sucesso.'
+      destroy: 'O cachorro selecionado foi deletada com sucesso.'

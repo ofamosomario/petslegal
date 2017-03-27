@@ -2342,3 +2342,354 @@ Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.3ms)
   [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (118.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "petshop_test"[0m
+  [1m[35m (466.0ms)[0m  [1m[35mCREATE DATABASE "petshop_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (43.4ms)[0m  [1m[35mCREATE TABLE "breeds" ("id" serial primary key, "name" character varying(120) NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (39.8ms)[0m  [1m[35mCREATE TABLE "dogs" ("id" serial primary key, "breed_id" integer, "dog_name" character varying(120) NOT NULL, "gender" integer NOT NULL, "owner_name" character varying(120) NOT NULL, "onwer_phone_1" character varying(14) NOT NULL, "owner_phone_2" character varying(14), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (73.9ms)[0m  [1m[35mCREATE TABLE "histories" ("id" serial primary key, "dog_id" integer, "care" integer, "user" character varying(120) NOT NULL, "description" text NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (38.9ms)[0m  [1m[35mCREATE  INDEX  "index_histories_on_dog_id" ON "histories" USING btree ("dog_id")[0m
+  [1m[35m (7.8ms)[0m  [1m[35mALTER TABLE "dogs" ADD CONSTRAINT "fk_dogs_breeds"
+FOREIGN KEY ("breed_id")
+  REFERENCES "breeds" ("id")
+[0m
+  [1m[35m (7.9ms)[0m  [1m[35mALTER TABLE "histories" ADD CONSTRAINT "fk_rails_b9236dddb9"
+FOREIGN KEY ("dog_id")
+  REFERENCES "dogs" ("id")
+[0m
+  [1m[35m (73.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (7.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170323190953)[0m
+  [1m[35m (8.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170322175950),
+(20170322173110),
+(20170322160823);
+
+[0m
+  [1m[35m (79.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", 2017-03-27 12:31:05 UTC], ["updated_at", 2017-03-27 12:31:05 UTC]]
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/breeds/new" for 127.0.0.1 at 2017-03-27 09:31:05 -0300
+Processing by BreedsController#new as HTML
+  Rendering breeds/new.html.erb within layouts/application
+  Rendered breeds/_form.html.erb (382.1ms)
+  Rendered breeds/new.html.erb within layouts/application (383.6ms)
+Completed 200 OK in 3141ms (Views: 3132.4ms | ActiveRecord: 4.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBreed Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "breeds" WHERE "breeds"."name" = $1 LIMIT $2[0m  [["name", "Vira lata"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBreed Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "breeds" WHERE "breeds"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/breeds/new" for 127.0.0.1 at 2017-03-27 09:32:05 -0300
+Processing by BreedsController#new as HTML
+  Rendering breeds/new.html.erb within layouts/application
+  Rendered breeds/_form.html.erb (430.7ms)
+  Rendered breeds/new.html.erb within layouts/application (432.3ms)
+Completed 200 OK in 700ms (Views: 692.2ms | ActiveRecord: 3.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBreed Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "breeds" WHERE "breeds"."name" = $1 LIMIT $2[0m  [["name", "Vira lata"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBreed Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "breeds" WHERE "breeds"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/breeds/new" for 127.0.0.1 at 2017-03-27 09:32:26 -0300
+Processing by BreedsController#new as HTML
+  Rendering breeds/new.html.erb within layouts/application
+  Rendered breeds/_form.html.erb (412.3ms)
+  Rendered breeds/new.html.erb within layouts/application (413.7ms)
+Completed 200 OK in 689ms (Views: 681.4ms | ActiveRecord: 3.1ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBreed Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "breeds" WHERE "breeds"."name" = $1 LIMIT $2[0m  [["name", "Vira lata"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBreed Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "breeds" WHERE "breeds"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/breeds/new" for 127.0.0.1 at 2017-03-27 09:33:07 -0300
+Processing by BreedsController#new as HTML
+  Rendering breeds/new.html.erb within layouts/application
+  Rendered breeds/_form.html.erb (375.4ms)
+  Rendered breeds/new.html.erb within layouts/application (376.9ms)
+Completed 200 OK in 551ms (Views: 544.8ms | ActiveRecord: 2.5ms)
+Started POST "/breeds" for 127.0.0.1 at 2017-03-27 09:33:07 -0300
+Processing by BreedsController#create as HTML
+  Parameters: {"utf8"=>"✓", "breed"=>{"name"=>"Raça de Exemplo"}, "commit"=>"Salvar"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBreed Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "breeds" WHERE "breeds"."name" = $1 LIMIT $2[0m  [["name", "Raça de Exemplo"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "breeds" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Raça de Exemplo"], ["created_at", 2017-03-27 12:33:07 UTC], ["updated_at", 2017-03-27 12:33:07 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/breeds
+Completed 302 Found in 7ms (ActiveRecord: 1.2ms)
+Started GET "/breeds" for 127.0.0.1 at 2017-03-27 09:33:07 -0300
+Processing by BreedsController#index as HTML
+  Rendering breeds/index.html.erb within layouts/application
+  [1m[36mBreed Load (0.5ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" ORDER BY "breeds"."created_at" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  Rendered breeds/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBreed Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "breeds" WHERE "breeds"."name" = $1 LIMIT $2[0m  [["name", "Vira lata"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBreed Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "breeds" WHERE "breeds"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/breeds/new" for 127.0.0.1 at 2017-03-27 09:35:04 -0300
+Processing by BreedsController#new as HTML
+  Rendering breeds/new.html.erb within layouts/application
+  Rendered breeds/_form.html.erb (410.8ms)
+  Rendered breeds/new.html.erb within layouts/application (412.1ms)
+Completed 200 OK in 610ms (Views: 603.0ms | ActiveRecord: 3.0ms)
+Started POST "/breeds" for 127.0.0.1 at 2017-03-27 09:35:05 -0300
+Processing by BreedsController#create as HTML
+  Parameters: {"utf8"=>"✓", "breed"=>{"name"=>"Raça de Exemplo"}, "commit"=>"Salvar"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBreed Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "breeds" WHERE "breeds"."name" = $1 LIMIT $2[0m  [["name", "Raça de Exemplo"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "breeds" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Raça de Exemplo"], ["created_at", 2017-03-27 12:35:05 UTC], ["updated_at", 2017-03-27 12:35:05 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/breeds
+Completed 302 Found in 8ms (ActiveRecord: 1.2ms)
+Started GET "/breeds" for 127.0.0.1 at 2017-03-27 09:35:05 -0300
+Processing by BreedsController#index as HTML
+  Rendering breeds/index.html.erb within layouts/application
+  [1m[36mBreed Load (0.7ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" ORDER BY "breeds"."created_at" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  Rendered breeds/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBreed Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "breeds" WHERE "breeds"."name" = $1 LIMIT $2[0m  [["name", "Vira lata"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBreed Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "breeds" WHERE "breeds"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/breeds/new" for 127.0.0.1 at 2017-03-27 09:36:45 -0300
+Processing by BreedsController#new as HTML
+  Rendering breeds/new.html.erb within layouts/application
+  Rendered breeds/_form.html.erb (378.7ms)
+  Rendered breeds/new.html.erb within layouts/application (380.2ms)
+Completed 200 OK in 545ms (Views: 538.6ms | ActiveRecord: 2.8ms)
+Started POST "/breeds" for 127.0.0.1 at 2017-03-27 09:36:46 -0300
+Processing by BreedsController#create as HTML
+  Parameters: {"utf8"=>"✓", "breed"=>{"name"=>"Raça de Exemplo"}, "commit"=>"Salvar"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBreed Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "breeds" WHERE "breeds"."name" = $1 LIMIT $2[0m  [["name", "Raça de Exemplo"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "breeds" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Raça de Exemplo"], ["created_at", 2017-03-27 12:36:46 UTC], ["updated_at", 2017-03-27 12:36:46 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/breeds
+Completed 302 Found in 7ms (ActiveRecord: 1.2ms)
+Started GET "/breeds" for 127.0.0.1 at 2017-03-27 09:36:46 -0300
+Processing by BreedsController#index as HTML
+  Rendering breeds/index.html.erb within layouts/application
+  [1m[36mBreed Load (0.8ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" ORDER BY "breeds"."created_at" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  Rendered breeds/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBreed Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "breeds" WHERE "breeds"."name" = $1 LIMIT $2[0m  [["name", "Vira lata"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBreed Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "breeds" WHERE "breeds"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/breeds/new" for 127.0.0.1 at 2017-03-27 09:42:04 -0300
+Processing by BreedsController#new as HTML
+  Rendering breeds/new.html.erb within layouts/application
+  Rendered breeds/_form.html.erb (377.3ms)
+  Rendered breeds/new.html.erb within layouts/application (378.6ms)
+Completed 200 OK in 543ms (Views: 536.8ms | ActiveRecord: 2.7ms)
+Started POST "/breeds" for 127.0.0.1 at 2017-03-27 09:42:04 -0300
+Processing by BreedsController#create as HTML
+  Parameters: {"utf8"=>"✓", "breed"=>{"name"=>"Raça de Exemplo"}, "commit"=>"Salvar"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBreed Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "breeds" WHERE "breeds"."name" = $1 LIMIT $2[0m  [["name", "Raça de Exemplo"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "breeds" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Raça de Exemplo"], ["created_at", 2017-03-27 12:42:04 UTC], ["updated_at", 2017-03-27 12:42:04 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/breeds
+Completed 302 Found in 7ms (ActiveRecord: 1.1ms)
+Started GET "/breeds" for 127.0.0.1 at 2017-03-27 09:42:04 -0300
+Processing by BreedsController#index as HTML
+  Rendering breeds/index.html.erb within layouts/application
+  [1m[36mBreed Load (0.5ms)[0m  [1m[34mSELECT  "breeds".* FROM "breeds" ORDER BY "breeds"."created_at" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  Rendered breeds/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBreed Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "breeds" WHERE "breeds"."name" = $1 LIMIT $2[0m  [["name", "Vira lata"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBreed Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "breeds" WHERE "breeds"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m

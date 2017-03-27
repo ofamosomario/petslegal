@@ -1,0 +1,6 @@
+pt-BR:
+  breeds:
+    confirmations:
+      new: 'A raça foi cadastrada com sucesso.'
+      edit: 'A raça selecionada foi editada com sucesso.'
+      destroy: 'A raça selecionada foi deletada com sucesso.'

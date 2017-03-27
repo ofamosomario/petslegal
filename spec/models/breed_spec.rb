@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe Breed, 'create'  do
   
@@ -11,8 +12,8 @@ RSpec.describe Breed, 'create'  do
 	      fill_in 'breed[name]', with: 'Raça de Exemplo'
 	    end
 
-	    click_button 'Create Breed'
-	    expect(page).to have_content 'Breed was successfully created.'
+	    click_button 'Salvar'
+	    expect(page).to have_content 'A raça foi cadastrada com sucesso.'
 	  end	
 
 	end

@@ -1,24 +1,32 @@
-# README
+# PetLegal - Instruções
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Projeto desenvolvido para Ionatec
 
-Things you may want to cover:
+### Informações de configuração e instalação do projeto PetLegal:
 
-* Ruby version
+* Versão do Ruby e do Rails: 2.3.3p222 / 5.0.2
 
-* System dependencies
+* Banco de dados: postgreSQL
 
-* Configuration
+* Instalção das GEMS: vá até a pasta que tenha descompactado o projeto e execute o seguinte comando:
 
-* Database creation
+```sh
+$ rake bundle install
+```
 
-* Database initialization
+* Criação do banco de dados e seeds: vá até a pasta que tenha descompactado o projeto e execute o seguinte comando:
+```sh
+$ rake db:create db:migrate db:seed
+```
 
-* How to run the test suite
+* Iniciando o servidor: vá até a pasta que tenha descompactado o projeto e inicialize utilizando esse comando:
 
-* Services (job queues, cache servers, search engines, etc.)
+```sh
+$ rails s
+```
 
-* Deployment instructions
+* Realizando os testes: execute os seguintes comandos para realizar os testes do projeto:
 
-* ...
+```sh
+$ rake spec
+```

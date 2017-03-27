@@ -14,12 +14,19 @@ class Dog < ApplicationRecord
 
   belongs_to :breed
 
-  has_many :histories, inverse_of: :dog
+  has_many :histories, inverse_of: :dog, dependent: :destroy
   accepts_nested_attributes_for :histories, reject_if: :all_blank, allow_destroy: true
 
   def self.last_dogs
   	limit(10)
   	.order(:created_at)
+  end
+
+  def self.ransack_paginate search , page
+    search.result(distinct: true)
+    .includes(:breed)
+    .paginate(page: page)
+    .order(:created_at)
   end
 
 end
